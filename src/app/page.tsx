@@ -109,7 +109,7 @@ export default function PensionConsultingPage() {
             </div>
             <div>
               <div style={{ fontSize: 15, fontWeight: 800, color: "#1a2e24" }}>
-                연금 박사 이영주의 맞춤 상담
+                연금 전문가의 맞춤 상담
               </div>
               <div style={{
                 display: "inline-block", background: "rgba(27,107,74,0.1)",
@@ -316,6 +316,9 @@ export default function PensionConsultingPage() {
               연금도 마찬가지입니다. <strong style={{ color: "#333" }}>안 좋은 연금은 빨리 빼서 쓰고,
               좋은 연금은 오래 묶혀두는 것이 훨씬 더 좋은 포트폴리오</strong>가 됩니다.
             </div>
+            <p style={disclaimerStyle}>
+              (상기 내용은 설계사 개인 의견이며 계약 체결에 따른 이익 또는 손실은 보험계약자 등에게 귀속됩니다)
+            </p>
           </div>
         </div>
       </section>
@@ -475,7 +478,7 @@ export default function PensionConsultingPage() {
                   </div>
                   <div style={{ fontSize: 14, color: "#666", lineHeight: 1.8, wordBreak: "keep-all", marginBottom: 12 }}>
                     핵심은 <strong style={{ color: "#333" }}>최저보증이율</strong>입니다.
-                    7~8% 최저보증 상품은 묶혀뒀다가 천천히 개시하세요.
+                    연단리 7~8% 최저보증 상품은 묶혀뒀다가 천천히 개시하세요.
                     0.5~1%짜리는 빨리 개시하는 게 낫습니다.
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -643,7 +646,7 @@ export default function PensionConsultingPage() {
             }}>
               국민연금, 퇴직연금, IRP, 연금보험, 주택연금...<br />
               어떤 연금을 언제 개시해야 할지<br />
-              <strong style={{ color: "#333" }}>연금 박사가 최적의 순서를 설계해 드립니다.</strong>
+              <strong style={{ color: "#333" }}>연금 전문가가 최적의 순서를 설계해 드립니다.</strong>
             </p>
           </div>
 
@@ -715,7 +718,7 @@ export default function PensionConsultingPage() {
               설계사 이영주 (등록번호 20010173010013호)
             </p>
             <p style={{ color: S.green, fontWeight: 700 }}>
-              엠금융서비스 준법 심의필 26-03-222 (2026-03-26~2027-03-24)
+              엠금융서비스 준법 심의필 26-xx-xxx (2026-xx-xx~2027-xx-xx)
             </p>
           </div>
 
