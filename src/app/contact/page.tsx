@@ -203,7 +203,7 @@ export default function ContactPage() {
                 <div style={{ fontSize: 11, color: "#bbb", fontWeight: 600, letterSpacing: 1, textTransform: "uppercase", marginBottom: 6 }}>연령대</div>
                 <div style={{ fontSize: 22, fontWeight: 800, color: "#1a2e24", marginBottom: 28 }}>연령대를 선택해주세요</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  {["40대", "50대", "60대", "70대 이상"].map(a => (
+                  {["20대", "30대", "40대", "50대", "60대", "70대 이상"].map(a => (
                     <button key={a} type="button"
                       onClick={() => { setFormAgeGroup(a); setTimeout(() => setFormStep(5), 280); }}
                       style={{ width: "100%", padding: "16px 20px", borderRadius: 12, border: formAgeGroup === a ? `2px solid ${S.green}` : "1.5px solid #e8e8e8", background: formAgeGroup === a ? "rgba(27,107,74,0.08)" : "#fafafa", color: formAgeGroup === a ? S.green : "#333", fontSize: 15, fontWeight: 600, cursor: "pointer", textAlign: "left", transition: "all 0.15s" }}>

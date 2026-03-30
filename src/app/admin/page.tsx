@@ -85,7 +85,7 @@ export default async function AdminPage(props: { searchParams: Promise<{ from?: 
   // Distribution analysis
   const distFields: { label: string; key: string; options: string[] }[] = [
     { label: "성별", key: "gender", options: ["남성", "여성"] },
-    { label: "연령대", key: "ageGroup", options: ["40대", "50대", "60대", "70대 이상"] },
+    { label: "연령대", key: "ageGroup", options: ["20대", "30대", "40대", "50대", "60대", "70대 이상"] },
     { label: "거주 지역", key: "region", options: ["서울", "경기", "인천", "강원", "충청권", "호남권", "영남권", "제주", "기타"] },
     { label: "유입 경로", key: "source", options: ["인스타그램", "틱톡", "스레드", "유튜브", "지인 소개", "기타"] },
     { label: "관심 연금", key: "pension", options: ["국민연금", "퇴직연금", "IRP", "연금저축", "연금보험", "주택연금", "기타"] },
