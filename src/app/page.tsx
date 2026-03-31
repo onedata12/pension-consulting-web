@@ -105,11 +105,11 @@ export default function PensionConsultingPage() {
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: 22, flexShrink: 0, color: "#fff", fontWeight: 800,
             }}>
-              Dr
+              👨‍💼
             </div>
             <div>
               <div style={{ fontSize: 15, fontWeight: 800, color: "#1a2e24" }}>
-                연금 전문가의 맞춤 상담
+                20명의 연금 전문가가 맞춤 설계를 도와드립니다
               </div>
               <div style={{
                 display: "inline-block", background: "rgba(27,107,74,0.1)",
@@ -616,11 +616,11 @@ export default function PensionConsultingPage() {
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: 22, flexShrink: 0, color: "#fff", fontWeight: 800,
             }}>
-              Dr
+              👨‍💼
             </div>
             <div>
               <div style={{ fontSize: 15, fontWeight: 800, color: "#1a2e24" }}>
-                연금 전문가가 무료로 상담해 드립니다
+                20명의 연금 전문가가 맞춤 설계를 도와드립니다
               </div>
               <div style={{
                 display: "inline-block", background: "rgba(27,107,74,0.1)",
