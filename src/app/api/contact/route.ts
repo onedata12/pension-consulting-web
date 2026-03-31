@@ -19,7 +19,11 @@ export async function POST(req: Request) {
         source: source || "",
         submittedAt: submittedAt || "",
       });
-      fetch(`${gasUrl}?${params.toString()}`).catch(() => {});
+      try {
+        await fetch(`${gasUrl}?${params.toString()}`, { method: "GET", redirect: "follow" });
+      } catch (e) {
+        console.error("GAS error:", e);
+      }
     }
 
     // Telegram
@@ -37,15 +41,20 @@ export async function POST(req: Request) {
         `상담내용: ${content || "-"}`,
       ].join("\n");
 
-      fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: tgChat, text, parse_mode: "HTML" }),
-      }).catch(() => {});
+      try {
+        await fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: tgChat, text, parse_mode: "HTML" }),
+        });
+      } catch (e) {
+        console.error("Telegram error:", e);
+      }
     }
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (e) {
+    console.error("Contact submit error:", e);
     return NextResponse.json({ success: true });
   }
 }
