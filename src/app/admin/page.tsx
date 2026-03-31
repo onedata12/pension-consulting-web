@@ -10,7 +10,11 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "03267";
 const S = { green: "#1B6B4A", greenLight: "#2E9B6E", accent: "#E8A838" };
 
 async function getCount(key: string) {
-  return ((await kv.get<number>(key)) || 0);
+  try {
+    return ((await kv.get<number>(key)) || 0);
+  } catch {
+    return 0;
+  }
 }
 
 async function getResponses(): Promise<Record<string, string>[]> {
