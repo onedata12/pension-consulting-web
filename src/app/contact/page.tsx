@@ -3,11 +3,29 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+function getUtmParams() {
+  if (typeof window === "undefined") return { utm_source: "", utm_content: "" };
+  const p = new URLSearchParams(window.location.search);
+  let utm_source = p.get("utm_source") || "";
+  let utm_content = p.get("utm_content") || "";
+  try {
+    if (utm_source) {
+      localStorage.setItem("utm_source", utm_source);
+      localStorage.setItem("utm_content", utm_content);
+    } else {
+      utm_source = localStorage.getItem("utm_source") || "";
+      utm_content = localStorage.getItem("utm_content") || "";
+    }
+  } catch {}
+  return { utm_source, utm_content };
+}
+
 function track(event: string) {
+  const utm = getUtmParams();
   fetch("/api/track", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ event }),
+    body: JSON.stringify({ event, ...utm }),
   }).catch(() => {});
 }
 
@@ -25,6 +43,7 @@ function normalizePhone(input: string): string | null {
 
 export default function ContactPage() {
   const router = useRouter();
+  const [utm, setUtm] = useState({ utm_source: "", utm_content: "" });
 
   const [formName, setFormName] = useState("");
   const [formGender, setFormGender] = useState("");
@@ -45,6 +64,7 @@ export default function ContactPage() {
   }, [formStep]);
 
   useEffect(() => {
+    setUtm(getUtmParams());
     track("funnel_enter");
   }, []);
 
@@ -69,6 +89,8 @@ export default function ContactPage() {
         pension: formPensionTypes.join(", "),
         content: formContent,
         source: formSource,
+        utm_source: utm.utm_source,
+        utm_content: utm.utm_content,
         submittedAt: new Date().toLocaleString("ko-KR"),
       }),
     }).catch(() => {});

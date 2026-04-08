@@ -2,11 +2,29 @@
 
 import { useEffect } from "react";
 
+function getUtmParams() {
+  if (typeof window === "undefined") return { utm_source: "", utm_content: "" };
+  const p = new URLSearchParams(window.location.search);
+  let utm_source = p.get("utm_source") || "";
+  let utm_content = p.get("utm_content") || "";
+  try {
+    if (utm_source) {
+      localStorage.setItem("utm_source", utm_source);
+      localStorage.setItem("utm_content", utm_content);
+    } else {
+      utm_source = localStorage.getItem("utm_source") || "";
+      utm_content = localStorage.getItem("utm_content") || "";
+    }
+  } catch {}
+  return { utm_source, utm_content };
+}
+
 function track(event: string) {
+  const utm = getUtmParams();
   fetch("/api/track", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ event }),
+    body: JSON.stringify({ event, ...utm }),
   }).catch(() => {});
 }
 
