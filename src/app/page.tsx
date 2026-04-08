@@ -736,7 +736,7 @@ export default function PensionConsultingPage() {
               설계사 이영주 (등록번호 20010173010013호)
             </p>
             <p style={{ color: S.green, fontWeight: 700 }}>
-              엠금융서비스 준법 심의필 26-xx-xxx (2026-xx-xx~2027-xx-xx)
+              엠금융서비스 준법 심의필 26-04-030 (2026-04-01~2027-03-31)
             </p>
           </div>
 
